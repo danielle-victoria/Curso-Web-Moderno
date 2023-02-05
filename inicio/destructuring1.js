@@ -1,4 +1,5 @@
 // novo recurso do ES2015
+//Operador destructuring - Casos com Objetos
 
 const pessoa = {
     nome: 'Ana',
