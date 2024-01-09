@@ -1,12 +1,12 @@
-<!-- Aula 8: HTML - Listas Aninhadas -->
+<!-- Aula 8 e 9: HTML - Listas Aninhadas e Listas Aninhadas(Desafio) -->
 
 <h1>Projeto</h1>
 <ul class="tree">
     <li>
-        Backend
+       <spa wm-folder>Backend</spa> 
         <ul>
             <li>
-                app
+                <spa wm-folder>app</spa>
                 <ul>
                     <li>produto.js</li>
                     <li>usuario.js</li>
@@ -14,7 +14,7 @@
                 </ul>
             </li>
             <li>
-                config
+                <spa wm-folder>config</spa>
                 <ul>
                     <li>banco.js</li>
                     <li>rotas.js</li>
@@ -25,10 +25,10 @@
 
     </li>
     <li>
-        frontend
+        <spa wm-folder>frontend</spa>
         <ul>
             <li>
-                public
+                <spa wm-folder>public</spa>
                 <ul>
                    <li>app.css</li>
                    <li>app.js</li> 
@@ -41,3 +41,12 @@
 </ul>
 
 <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    document.querySelectorAll('[wm-folder]').forEach(folder => {
+        folder.onclick = function(e){
+            const ul = folder.nextElementSibling
+            const d = ul.style.display
+            ul.style.display = d == 'none' ? 'block' : 'none'
+        }
+    })
+</script>
