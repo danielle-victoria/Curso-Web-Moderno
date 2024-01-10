@@ -1,4 +1,4 @@
-// Aula 13 e 14: HTML - Formulário 1 e 2
+// Aula 13, 14 e 15: HTML - Formulário 1, 2 e 3
 
 //Backend
 
@@ -10,7 +10,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/usuarios', (req, resp) => {
     console.log(req.body)
-    resp.send('<h1>Parabéns</h1>')
+    resp.send('<h1>Parabéns. Usuário Incluído!</h1>')
+})
+
+app.post('/usuarios/:id', (req, resp) => {
+    console.log(req.params.id)
+    console.log(req.body)
+    resp.send('<h1>Parabéns. Usuário Alterado!</h1>')
 })
 
 
