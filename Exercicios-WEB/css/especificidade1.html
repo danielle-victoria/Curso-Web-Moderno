@@ -1,3 +1,5 @@
+<!-- Aula 7: CSS - Especificidade CSS 1 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -6,6 +8,31 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+
+        /*
+            Em linhas gerais...
+
+            1. regra com !important -> Cuidado! É bom evitar
+            2. Seletores mais específicos -> Inline
+            3. última regra processada (empate)
+        */
+
+        p {
+            background-color: #aaa;
+        }
+
+        .observacao {  /* Classe é mais específico -> Mais forte*/
+            background-color: #5f5;
+            border: dashed 5px;
+            padding: 200px  !important;  /*Burlou a regra de especificidade */
+            font-size: 40px;
+        }
+
+        p.observacao { /* Ainda mais específico */
+            padding: 2px;
+            background: linear-gradient(to right, red, yellow);
+
+        }
     </style>
 </head>
 
