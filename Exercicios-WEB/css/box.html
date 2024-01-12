@@ -1,3 +1,5 @@
+<!-- Aula 10 e 11: CSS - Box Model - 1 e 2 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +7,34 @@
     <meta charset="UTF-8">
     <title>Box Model</title>
     <style>
-        /* ... */
+
+        body {
+            font-size: 80px;
+            margin: 0;
+        }
+
+        .c1 {
+            background-color: orange;
+        }
+
+        .c2 {
+            background-color: skyblue;
+        }
+
+        .c3 {
+            background-color: tomato;
+        }
+
+        div {
+            float: left;
+            padding-top: 100px;
+            padding: 10px 50px 100px 150px; /*Sentido horário -> top, right, bottom e left*/ 
+            padding: 100px 50px; /* Vertical: 100* e Horizontal: 50 */  
+            padding: 50px; /* Todas as direções */
+            margin: 0px 20px;
+            border: solid 15px black;
+        }
+
     </style>
 </head>
 
