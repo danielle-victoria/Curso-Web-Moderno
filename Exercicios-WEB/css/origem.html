@@ -1,3 +1,5 @@
+<!-- Aula 3: CSS - CSS Interno, Externo e Inline -->
+
 <!DOCTYPE html>
 <html>
 
@@ -5,12 +7,18 @@
     <meta charset="UTF-8">
     <title>Origem CSS: Externo, Interno e Inline</title>
     <style>
-        /* ... */
+        body {
+            background-color: aquamarine;
+        }
     </style>
+    <link rel="stylesheet" href="css/externo.css"> 
 </head>
 
-<body>
+<body style="background-color: coral;">
     <h1>E agora?</h1>
 </body>
 
+<!-- O tipo do CSS que vai ter preferência será o último tipo declarado no código, com exceção do tipo Inline(tem preferência maior)  -->
+<!-- Não é recomendado usar o CSS Inline -->
+<!-- É melhor usar o CSS Externo -->
 </html>
