@@ -1,3 +1,5 @@
+<!-- Aula 8: CSS - Especificidade CSS 2 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -5,19 +7,53 @@
     <meta charset="UTF-8">
     <title>Especificidade CSS</title>
     <style>
-        /* https://specificity.keegan.st/ */
+        /* https://specificity.keegan.st/ */ /* Calculadora de Especificidade */
+
+        /*
+            1. Inline
+            2. ID
+            3. Classe, Pseudo-Classe, atributo
+            4. Elemento, Pseudo-Elementos
+        */
+
+        body {
+            font-size:  40px;
+        }
+
+        div {
+            background-color: #00B;
+            color: #fff;
+        }
+
+        div[wm-cor] {
+            background-color: darkorange;
+        }
+
+        div:hover{
+            background-color: purple;
+        }
+
+        div.estilo {
+            background-color: green;
+        }
+
+        #unico1, #unico2 {
+            background-color: #000;
+        }
+
+
     </style>
 </head>
 
 <body>
-    <div id="unico1" class="estilo">
-        #unico1 vs .estilo vs inline
+    <div id="unico1" class="estilo" style="background-color: red ;">
+        #unico1 vs .estilo vs inline  <!-- ID,Classe e Inline -->
     </div>
-    <div id="unico2" class="estilo">#unico2 vs .estilo</div>
-    <div class="estilo" wm-cor>.estilo vs wm-cor</div>
-    <div wm-cor>wm-cor</div>
-    <div class="estilo">.estilo</div>
-    <div>elemento</div>
+    <div id="unico2" class="estilo">#unico2 vs .estilo</div>  <!-- ID e CLasse -->
+    <div class="estilo" wm-cor>.estilo vs wm-cor</div> <!-- Classe e Propriedade -->
+    <div wm-cor>wm-cor</div>   <!-- Propriedade -->
+    <div class="estilo">.estilo</div> <!-- Classe -->
+    <div>elemento</div> <!-- Vazio -->
 </body>
 
 </html>
