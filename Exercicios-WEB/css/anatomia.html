@@ -1,3 +1,4 @@
+<!-- Aula 2: CSS - Anatomia CSS -->
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +6,37 @@
     <meta charset="UTF-8">
     <title>Anatomia CSS</title>
     <style>
-        /* ... */
+        .selector {
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+
+            /*Múltiplos valores*/
+
+            border: solid 5px navy; /* shorthand property*/
+            font-family: Helvetica, monospace; /* Se não achar a primeira fonte, usa a segunda*/
+
+            /* Funções */ 
+            width: calc(100% - 100px);
+            background-color: rgb(34, 153, 189);
+        }
+
+        /* Usando uma pseudo-classe*/
+        .selector:hover { /*Quando o mouse passa em cima do seletor*/
+            background-color: orangered;
+        }
+
+        /*  Usando pseudo-elemento */
+        .selector::first-letter {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        /* OBSERVAÇÕES */
+
+        /* Padrão de nomeclatura */
+        /* Dash-case ou CamelCase */ 
+
     </style>
 </head>
 
