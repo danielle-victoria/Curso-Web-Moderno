@@ -1,3 +1,5 @@
+<!-- Aula 26: CSS - Media Query -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,26 @@
             background-color: coral;
             border: solid 5px;
             display: none;
+        }
+
+        /*media -> Como se fosse um filtro */
+        @media(max-width: 600px) {
+            .muito-pequeno {
+                display: block;
+            } 
+           
+        }
+
+        @media(max-width: 1000px), (orientation: portrait) {
+            .pequeno-retrato{
+                display: block;
+            }
+        }
+
+        @media (min-width:500px) and (max-width: 1000px){
+            .intervalo {
+                display: block;
+            }
         }
     </style>
 </head>
