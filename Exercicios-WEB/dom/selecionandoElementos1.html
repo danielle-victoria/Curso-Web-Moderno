@@ -1,3 +1,5 @@
+<!-- Aula 1: Integrando HTML, CSS e JS - Selecionando Elementos - 1 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,18 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        document.getElementById('primeiro').classList.add('destaque')
+
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+
+        const divsArray = [...divs]
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        const ultimoElementos = document.getElementsByClassName('ultimo')
+        for(let e of ultimoElementos){
+            e.classList.remove('destaque')
+        }
     </script>
 </body>
 </html>
