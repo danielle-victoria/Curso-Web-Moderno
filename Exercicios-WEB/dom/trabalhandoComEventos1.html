@@ -1,3 +1,5 @@
+<!-- Aula 11: Integrando HTML, CSS e JS - Trabalhando Com Eventos - 1 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -9,9 +11,26 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- onclick="navegarEm5s(event)" --> <!-- Forma explícita -> Colocar dentro da tag -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e){
+            e.preventDefault()
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target
+                window.location.href = link.href
+
+            }, 5000)
+        }
+        
+       /*  const a = document.querySelector('a')
+        a.onclick = navegarEm5s */
+
+        /* Melhor abordagem */
+        const a = document.querySelector('[espera-um-pouco]') // Atributo personalizado
+        a.onclick = navegarEm5s
+
     </script>
 </body>
