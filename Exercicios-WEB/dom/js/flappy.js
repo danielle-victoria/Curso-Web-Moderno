@@ -1,4 +1,4 @@
-// Aula 17, 18, 19, 20: Integrando HTML, CSS e JS -  Flappy Bird  - 2, 3, 4 e 5
+// Aula 17, 18, 19, 20 e 21: Integrando HTML, CSS e JS -  Flappy Bird  - 2, 3, 4, 5 e 6
 
 
  function novoElemento(tagName, className) {
@@ -148,6 +148,36 @@
  },20) */
 
 
+ function estaoSobrepostos(elementoA, elementoB){
+    const a = elementoA.getBoundingClientRect()
+    const b = elementoB.getBoundingClientRect()
+                      // Lado dir. A      Lado esq. B
+    const horizontal = a.left + a.width >= b.left
+        && b.left + b.width >= a.left
+
+    const vertical = a.top + a.height >= b.top
+    && b.top + b.height >= a.top
+
+    return horizontal && vertical
+    hei
+
+ }
+
+ function colidiu(passaro, barreiras){
+    let colidiu = false
+    barreiras.pares.forEach(parDeBarreiras => {
+        if (!colidiu) {
+            const superior = parDeBarreiras.superior.elemento
+            const inferior = parDeBarreiras.inferior.elemento
+
+            colidiu = estaoSobrepostos(passaro.elemento, superior)
+                || estaoSobrepostos(passaro.elemento, inferior)
+        }
+    })
+
+    return colidiu
+ }
+
  function FlappyBird(){
   let pontos = 0
   
@@ -156,7 +186,7 @@
   const largura = areaDoJogo.clientWidth
 
   const progresso = new Progresso()
-  const barreiras = new Barreiras(altura, largura, 200, 300,
+  const barreiras = new Barreiras(altura, largura, 250, 300,
     () => progresso.atualizarPontos(++pontos))
 
   const passaro = new Passaro(altura)
@@ -171,6 +201,10 @@
     const temporizador = setInterval(() => {
         barreiras.animar()
         passaro.animar()
+
+        if(colidiu(passaro, barreiras)){
+            clearInterval(temporizador)
+        }
     }, 20)
   }
  }
