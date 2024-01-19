@@ -1,4 +1,4 @@
-// Aula 17: Integrando HTML, CSS e JS -  Flappy Bird  - 2 
+// Aula 17, 18: Integrando HTML, CSS e JS -  Flappy Bird  - 2 e 3 
 
 
  function novoElemento(tagName, className) {
@@ -50,5 +50,42 @@
 
  }
 
- const b = new ParDeBarreiras(700, 300, 800)
- document.querySelector('[wm-flappy]').appendChild(b.elemento)
+ /* const b = new ParDeBarreiras(700, 300, 800)
+ document.querySelector('[wm-flappy]').appendChild(b.elemento) */
+
+ function Barreiras(altura, largura, abertura, espaco, notificarPonto){
+    this.pares = [
+        new ParDeBarreiras(altura, abertura, largura),
+        new ParDeBarreiras(altura, abertura, largura + espaco),
+        new ParDeBarreiras(altura, abertura, largura + espaco * 2),
+        new ParDeBarreiras(altura, abertura, largura + espaco * 3)
+
+    ]
+
+    const deslocamento = 3
+    this.animar = () => {
+        this.pares.forEach(par => {
+            par.setX(par.getX() - deslocamento)
+
+            // Quando o elemento sair da área do jogo
+
+            if(par.getX() < -par.getLargura()) {
+                par.setX(par.getX() + espaco * this.pares.length)
+                par.sortearAbertura()
+            }
+
+            const meio = largura / 2
+
+            const cruzouOMeio = par.getX() + deslocamento >= meio
+                && par.getX() < meio
+            if(cruzouOMeio) notificarPonto()    
+        })
+    }
+ }
+
+ const barreiras = new Barreiras(700, 1100, 300, 400)
+ const areaDoJogo = document.querySelector('[wm-flappy]')
+ barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+ setInterval(() => {
+    barreiras.animar()
+ },20)
