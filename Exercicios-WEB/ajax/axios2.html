@@ -1,3 +1,5 @@
+<!-- Aula 9: Ajax - Axios - 2 --> 
+
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +16,28 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        function exibirResultado(id, dados) {
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto
+
+        }
+
+        //Forma 1
+
+        axios.get('parOuImpar', {
+            params: {
+                numero: 5
+            }
+        }).then(resp => exibirResultado('get', resp.data))
+
+        axios.post('formulario', {
+            nome: 'João',
+            sobrenome: 'Silva'
+        }).then(resp => exibirResultado('post', resp.data))
+
+
+        // Forma 2
+
+        /* axios('parOuImpar?numero=10').then(resp => exibirResultado('get', resp.data)) */
     </script>
 </body>
