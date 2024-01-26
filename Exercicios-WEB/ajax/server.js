@@ -1,6 +1,7 @@
 // Aula 2: Ajax - Implementando server.js
 // Aula 4: Ajax - XML HTTP Request -- 2
 // Aula 7: Ajax - Fetch - 2 
+// Aula 9: Ajax - Axios - 2
 
 
 
@@ -37,11 +38,30 @@ app.post('/upload', (req, res) => {
     })
 })
 
+// Para o fetch
+
 app.post('/formulario', (req, res) => {
     res.send({
         ...req.body,
         id: 1
     })
 })
+
+// Para o axios - get
+
+app.get('/parOuImpar', (req, res) => {
+
+    // Formas de receber uma requisições
+    /* req.body
+        req.query
+        req.params
+         */
+
+    const par = parseInt(req.query.numero) % 2 === 0
+    res.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
+
 
 app.listen(8080, () => console.log('Executando...'))
