@@ -1,3 +1,5 @@
+<!-- Aula 10: Ajax - Ajax com jQuery --> 
+
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +16,44 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        function exibirResultado(id, dados){
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto
+        }
+
+       // jQuery.ajax ou $
+
+       // get
+
+       $.ajax({
+        url: 'parOuImpar',
+        data: {
+            numero: 5
+        },
+        success(data) {
+            exibirResultado('get', data)
+        }
+       })
+
+       //post
+
+       $.ajax({
+        url: 'formulario',
+        method: 'post',
+        data: {
+            nome: 'João',
+            sobrenome: 'Silva'
+        },
+        success(data){  //callback de sucesso
+            exibirResultado('post', data)
+        },
+        error(e){  //callback de erro
+            exibirResultado('post', e)
+        }
+       })
+
+
+
+
     </script>
 </body>
