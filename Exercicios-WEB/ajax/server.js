@@ -1,5 +1,6 @@
 // Aula 2: Ajax - Implementando server.js
-// Aula 4: Ajax - XML HTTP Request -- 2 
+// Aula 4: Ajax - XML HTTP Request -- 2
+// Aula 7: Ajax - Fetch - 2 
 
 
 
