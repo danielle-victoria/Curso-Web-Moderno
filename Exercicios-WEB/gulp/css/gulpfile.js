@@ -1,6 +1,7 @@
 /* Aula 1 - Processando SASS com Gulp */
 
-const { series } = require('gulp')
+//const { series } = require('gulp')
+const { parallel } = require('gulp')
 const gulp = require('gulp')
 //const sass = require('gulp-sass')
 const sass = require('gulp-sass')(require('sass'))
@@ -16,5 +17,11 @@ function transformacaoCSS(){
         .pipe(gulp.dest('build/css'))        
 }
 
+/* Aula 2 - Processando SASS com Gulp */
 
-exports.default = series(transformacaoCSS)
+function copiarHTML(){
+    return gulp.src('src/index.html')
+        .pipe(gulp.dest('build'))
+}
+
+exports.default = parallel(transformacaoCSS, copiarHTML)
