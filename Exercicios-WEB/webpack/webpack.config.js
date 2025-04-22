@@ -18,11 +18,13 @@ module.exports = {
     ],
     module:{    /// Aula 4 -  Carregando Arquivo .CSS
         rules: [{
-            test: /\.css$/,
+            //test: /\.css$/,
+            test: /\.s?[ac]ss$/, // Aula 6 - Carregando Arquivo .SCSS (SASS)
             use: [
                 MiniCssExtractPlugin.loader,
                 //'style-loader', //Adiciona CSS a DOM injentando a tag <style>
-                'css-loader' //interpretando @import, url()...
+                'css-loader', //interpretando @import, url()...
+                'sass-loader',
             ]
         }]
     }
