@@ -1,6 +1,7 @@
 /* Arquivo interpretado pelo node*/
 
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     mode: "development",
@@ -10,11 +11,17 @@ module.exports = {
         filename: 'principal.js',
         path: __dirname + '/public'  //Pasta de destino
     },
+    plugins: [  // Aula 5 - Externalizando Arquivo .CSS
+        new MiniCssExtractPlugin({
+            filename: "estilo.css"
+        })
+    ],
     module:{    /// Aula 4 -  Carregando Arquivo .CSS
         rules: [{
             test: /\.css$/,
             use: [
-                'style-loader', //Adiciona CSS a DOM injentando a tag <style>
+                MiniCssExtractPlugin.loader,
+                //'style-loader', //Adiciona CSS a DOM injentando a tag <style>
                 'css-loader' //interpretando @import, url()...
             ]
         }]
