@@ -3,8 +3,8 @@
 const modoDev = process.env.NODE_ENV !== 'production' // Aula 7 - Desenvolvimento & Produção
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserWebpackPlugin = require('terser-webpack-plugin')
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin') // Aula 7 - Desenvolvimento & Produção
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin') // Aula 7 - Desenvolvimento & Produção
 
 
 module.exports = {
@@ -18,9 +18,11 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new TerserWebpackPlugin({
-                //cache: true,
-                parallel: true
+            new TerserPlugin({
+                parallel: true,
+                terserOptions: {
+                    ecma: 6
+                }
             }),
             new CssMinimizerWebpackPlugin({
 
