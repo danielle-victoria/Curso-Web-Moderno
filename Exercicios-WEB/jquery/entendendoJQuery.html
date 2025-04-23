@@ -14,6 +14,21 @@
     <div>2</div>
 
     <script>
-        // ...
+        // Aula 3 -  Entendendo jQuery
+        //$('div').hide(5000) //esconde um conjunto objetos -> divs serão ocultadas em 5s.
+        //$('div').hide(5000).show(5000)
+        //jQuery('div').hide(5000).show(5000).fadeOut(5000)
+        $('div').hide(5000).show(5000).fadeOut(5000)
+        console.log($('div').get(1))
+        console.log($.isEmptyObject({nome: null})) //função utilitária
+        console.log(jQuery.inArray(3, [1, 2, 3])) //função utilitária //Se tiver 3 no array, é retornado a posição do elemento
+
+        //plugin
+        $.fn.fundoVerde = function (){
+            this.css('background-color', 'green')
+            return this   //Serve para poder encadear chamadas do jQuery
+        }
+
+        $('body').fundoVerde().fadeOut(1000)
     </script>
 </body>
