@@ -10,13 +10,14 @@ const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin') // Aul
 module.exports = {
     //mode: "development",
     mode: modoDev ? 'development' : 'production',//Aula 7 - Desenvolvimento & Produção
-    entry: "./src/principal.js", // ponto de entrada
+    entry: {main:'./src/principal.js'}, // ponto de entrada
     //entry: path.resolve(__dirname, './src/principal.js')
     output: {    /* Aula 3 - Configurando a Pasta de Saída */
         filename: 'principal.js',
         path: __dirname + '/public'  //Pasta de destino
     },
     optimization: {
+        minimize: !modoDev,
         minimizer: [
             new TerserPlugin({
                 parallel: true,
@@ -45,7 +46,11 @@ module.exports = {
                 'css-loader', //interpretando @import, url()...
                 'sass-loader',
             ]
+        }, {
+            test: /\.(png|svg|jpg|gif|jpeg)$/, // Aula 8 - Carregando Arquivos de Imagens
+            //use: ['file-loader']
+            type: 'asset/resource'
         }]
-    }
+    } 
 }
 
