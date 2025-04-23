@@ -16,6 +16,12 @@ module.exports = {
         filename: 'principal.js',
         path: __dirname + '/public'  //Pasta de destino
     },
+    devServer: { //Aula 9 - Adicionando WebServer
+        static: {
+            directory: __dirname + "/public",
+        },
+        port: 9000
+    },
     optimization: {
         minimize: !modoDev,
         minimizer: [
