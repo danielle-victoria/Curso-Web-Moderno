@@ -1,3 +1,4 @@
+<!--Aula 4 - Selecionando Elementos #01-->
 <!DOCTYPE html>
 <html>
 
@@ -49,6 +50,33 @@
     </form>
 
     <script>
-        // ...
+        $('#feira').addClass('destaque').removeClass('destaque')
+        $('li').addClass('destaque')
+        //Seletor de atributo
+        $('[wm-obrigatorio]').removeClass('destaque')
+        $('li.opcional').removeClass('destaque')
+        $('div p span').addClass('destaque')
+
+
+        //Exclusivos jQuery
+        $('li:first').css('border', 'solid 3px yellow')
+        $('li:odd').css('border', 'solid 10px orange')
+        //Seletor + filtro  -> terceiro e quatro elementos
+        $('li:gt(1)').css('border', 'solid 10px white')
+        //Apenas o último elemento ficou com a borda
+        $('li:not(:last)').css('border', 'none')
+        //Se tem algum elemento que contém a letra "r" e aplica a transformação
+        $('li:contains("r")').css('background-color', 'black')
+
+
+        //Filtros
+        $('form *').hide()  //Esconde todos os elementos do formulário
+        $('form :text').show() //Mostra a caixa de texto
+        $('form :password').show() //Mostra a caixa de senha
+        $('form :checkbox').show() //Mostra a caixa de seleção
+        $('form :radio').show()
+        $('form :file').show()
+
+
     </script>
 </body>
