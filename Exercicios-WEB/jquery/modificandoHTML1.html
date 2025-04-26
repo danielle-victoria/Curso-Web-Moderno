@@ -1,3 +1,5 @@
+<!-- Aula 6 - Modificando HTML #01 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -13,8 +15,38 @@
     <div id='conteudo1'></div>
     <div id='conteudo2'></div>
     <div id='conteudo3'></div>
+    <div> Sem ID!</div>
 
     <script>
-        // ...
+        // Conteúdo 1
+        //Adicionar elemento -> append
+        $('#conteudo1').append('<p>1</p>')
+
+        //Conteúdo 2
+        const elementos = [
+            $('<li></li>').append('Arroz'),
+            $('<li>').append('Feijão'),
+            $('<li></li>').append('Carne')
+
+        ]
+
+        const lista = $('<ul><li>Sorvete</li></ul>').append(elementos)  //adiciona no fim
+        //const lista = $('<ul><li>Sorvete</li></ul>').prepend(elementos)  //adiciona no início
+        $('#conteudo2').append(lista)
+
+        //Conteúdo 3
+        /*$('#conteudo3').append('<h1>1</h1>')
+                .append('<h1>2</h1>')*/
+
+        //$('#conteudo3').append('<h1>1</h1>', '<h1>2</h1>')
+        $('#conteudo3').append(['<h1>1</h1>', '<h1>2</h1>'])
+                .prepend('<h1>0</h1>')
+        $('#conteudo3').html('<h1>123</h1>')  //HTML substitui o conteúdo dos elementos
+        $('#conteudo3').text('<h1>123</h1>')  //Manipular e adicionar elementos dentro de um seletor
+
+
+        //Alterando todos
+        $('div[id]').html('<strong>Todos!</strong>')  //Selecione as divs que tenha o atributo id
+
     </script>
 </body>
