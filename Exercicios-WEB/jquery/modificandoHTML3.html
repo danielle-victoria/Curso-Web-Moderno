@@ -1,3 +1,4 @@
+<!-- Aula 8 - Modificando HTML #03 (Desafio) -->
 <!DOCTYPE html>
 <html>
 
@@ -13,13 +14,52 @@
     <div id='conteudo'></div>
 
     <script>
-        const pessoas = [
-            { nome: 'Ana', nota: 9.1 },
-            { nome: 'Bianca', nota: 8.4 },
-            { nome: 'Carlos', nota: 7.6 },
-            { nome: 'Julia', nota: 9.7 }
-        ]
         
-        // ...
+        //Quando o código está pronto, esta função é chamada
+
+        //versão 1
+        /*$(document).ready(function() {
+            const pessoas = [
+                { nome: 'Ana', nota: 9.1 },
+                { nome: 'Bianca', nota: 8.4 },
+                { nome: 'Carlos', nota: 7.6 },
+                { nome: 'Julia', nota: 9.7 }
+            ]
+        
+            const linhas = pessoas.map(p => {
+                const tdNome = $('<td>').html(p.nome)
+                const tdNota = $('<td>').html(p.nota)
+                //return $('<tr>').append(tdNome).append(tdNota)
+                return $('<tr>').append(tdNome, tdNota)
+                //return $('<tr>').append([tdNome, tdNota])
+            })
+
+            const tabela = $('<table>').append(linhas)
+                .css('border', 'solid 5px')
+            $('#conteudo').append(tabela)
+
+        })*/
+
+        $(function() {
+            const pessoas = [
+                { nome: 'Ana', nota: 9.1 },
+                { nome: 'Bianca', nota: 8.4 },
+                { nome: 'Carlos', nota: 7.6 },
+                { nome: 'Julia', nota: 9.7 }
+            ]
+
+            const linhas = pessoas.map(aluno => {
+                const tdNome = $('<td>').html(aluno.nome)
+                const tdNota = $('<td>').html(aluno.nota)
+                return $('<tr>').append(tdNome, tdNota)
+            })
+
+            const tabela = $('<table>').append(linhas)
+                .css('border', 'solid 5px')
+            $('#conteudo').append(tabela)
+
+
+        })
+         
     </script>
 </body>
