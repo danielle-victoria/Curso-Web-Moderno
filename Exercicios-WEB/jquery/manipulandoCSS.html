@@ -1,3 +1,5 @@
+<!-- Aula 10 - Manipulando CSS -->
+
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +17,25 @@
     <div id='div3'>3</div>
     <div id='resultado'></div>
     <script>
-        // ...
+        const fonte = $('#div1').css('font-family')
+        $('#resultado').append(`Fonte é ${fonte}`)
+
+        $('#div1').css('font-size', '3em')  //manipular apenas um objeto
+        $('#div1').css({'font-size': '3.5em', 'color': 'yellow'}) //Manipular um conjunto de objetos
+        //Passar uma callback
+        $('#div1').css('font-size', function () {
+            return `${2*2}em`
+        })
+        //Manipular classe
+        $('#div2').addClass('destaque')
+
+        const temClasse = $('#div2').hasClass('destaque')
+        $('#resultado').append(`<br>Tem class? ${temClasse}`)
+
+        //Remover uma classe
+        $('#div2').removeClass('destaque')
+        $('#div2').toggleClass('destaque')// Se não tiver, ele adiciona
+        $('#div2').toggleClass('destaque')// Se tiver, ele remove
+
     </script>
 </body>
