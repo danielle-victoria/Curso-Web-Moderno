@@ -1,3 +1,5 @@
+<!-- Aula - 11 Eventos #01 - -->
+
 <!DOCTYPE html>
 <html>
 
@@ -20,6 +22,45 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        function mostraPosicaoMouse(e){
+            //$('#posicao').html(`x: ${e.clientX}`).append(`y: ${e.clientY}`)
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+        //on - registra um evento no jQuery
+        $('body').on('mousemove', mostraPosicaoMouse)
+
+        $('#posicao').mouseover(e => {
+            $('body').off('mousemove', mostraPosicaoMouse) //Passa função que quer ser removida -> Função para de funcionar -> mostraPosicaoMouse
+        })
+
+        //Fazer a funçao mostraPosicaoMouse voltar a funcionar
+        $('#posicao').mouseleave(e => {
+            //$('body').on('mousemove', mostraPosicaoMouse)
+            $('body').mousemove(mostraPosicaoMouse)
+        })
+
+
+        //Monitorar o clique
+        let cliques = 0
+        $('body').click(e => {
+            $('#cliques').html(`Cliques: ${++cliques}`)
+        })
+
+        //Manipulação de eventos do teclado
+        const backgroundOriginal = $('body').css('background-color')
+
+        $('input').keyup(function(e) {  //keyup - Sempre é o valor atualizado
+            //console.log(e.target.value)
+            const valor = $(this).val()
+            //console.log(valor)
+            if(valor.match(/#[\da-fA-F]{3,6}/)){    // OU (/#[\da-fA-F]{6}/)
+                $('body').css('background-color', valor)
+
+            }else{
+                $('body').css('background-color', backgroundOriginal)
+            }
+        })
+
+
     </script>
 </body>
