@@ -14,7 +14,10 @@
             .then(html => {
                 destino.innerHTML = html
                  /* Para o tooltip funcionar ->componentes.html*/
-                eval(html.match(/\<script\>([\s\S]*)\<\/script\>/)[1])
+                const resultado = html.match(/\<script\>([\s\S]*)\<\/script\>/)
+                if(resultado && resultado.length >=  2){
+                    eval(resultado[1])
+                }
             })
     }
 
