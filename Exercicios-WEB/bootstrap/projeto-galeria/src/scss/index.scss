@@ -1,0 +1,9 @@
+// Aula 28 - Bootstrap/jQuery/Webpack: Referenciando os Estilos (SCSS)
+
+@import "~bootstrap/scss/bootstrap";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+@import "custom";
+
