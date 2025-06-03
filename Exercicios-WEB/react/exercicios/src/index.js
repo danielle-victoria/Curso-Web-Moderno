@@ -4,6 +4,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 //import Primeiro from './componentes/Primeiro'
 import BomDia from './componentes/BomDia'
+//import { BoaTarde } from './componentes/Multiplos'
+//import { BoaNoite } from './componentes/Multiplos'
 
 //ReactDOM.render(<h1>React</h1>, document.getElementById('root'))
 /*const root = ReactDOM.createRoot(document.getElementById("root"))
@@ -15,5 +17,32 @@ root.render(<h1>Projeto React</h1>)*/
 //root.render(<Primeiro/>)
 
 //Aula 39 - React: Componente Com Parâmetro
+//const root = ReactDOM.createRoot(document.getElementById("root"))
+//root.render(<BomDia nome="Guilherme" idade={10} />)
+
+//Aula 40 - React: Múltiplos Componentes
+
+//import  BoaTarde, { BoaNoite } from './componentes/Multiplos' //default boa tarde
+import { BoaTarde, BoaNoite } from './componentes/Multiplos'
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<BomDia nome="Guilherme" idade={10} />)
+root.render(<div>
+    <BoaTarde  nome="Ana"/>
+    <BoaNoite nome="Bia"/>
+</div>)
+
+
+/*import Multi from './componentes/Multiplos'
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(<div>
+    <Multi.BoaTarde  nome="Ana"/>
+    <Multi.BoaNoite nome="Bia"/>
+</div>)*/
+
+
+/*import Multi, {BoaNoite} from './componentes/Multiplos'
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(<div>
+    <Multi.BoaTarde  nome="Ana"/>
+    <BoaNoite nome="Bia"/>
+</div>)*/
+
