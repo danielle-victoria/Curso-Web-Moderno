@@ -3,7 +3,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 //import Primeiro from './componentes/Primeiro'
-import BomDia from './componentes/BomDia'
+//import BomDia from './componentes/BomDia'
 //import { BoaTarde } from './componentes/Multiplos'
 //import { BoaNoite } from './componentes/Multiplos'
 
@@ -24,11 +24,11 @@ root.render(<h1>Projeto React</h1>)*/
 
 //import  BoaTarde, { BoaNoite } from './componentes/Multiplos' //default boa tarde
 import { BoaTarde, BoaNoite } from './componentes/Multiplos'
-const root = ReactDOM.createRoot(document.getElementById("root"))
+/*const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(<div>
     <BoaTarde  nome="Ana"/>
     <BoaNoite nome="Bia"/>
-</div>)
+</div>)*/
 
 
 /*import Multi from './componentes/Multiplos'
@@ -45,4 +45,14 @@ root.render(<div>
     <Multi.BoaTarde  nome="Ana"/>
     <BoaNoite nome="Bia"/>
 </div>)*/
+
+//Aula 41 - React: Componente de Classe #01
+import Saudacao from './componentes/Saudacao'
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(<div>
+    <Saudacao tipo="Bom dia" nome="João" />
+</div>)
+
+
 
