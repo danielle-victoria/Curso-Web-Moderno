@@ -56,10 +56,15 @@ root.render(<div>
 
 //Aula 43 - React: Componentes: Pai & Filho #01
 import Pai from './componentes/Pai'
+import Filho from './componentes/Filho'
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(<div>
-    <Pai nome="Paulo" sobrenome="Silva" />
+    <Pai nome="Paulo" sobrenome="Silva">
+        <Filho nome="Pedro" />
+        <Filho nome="Paulo" sobrenome="Silva"/>
+        <Filho nome="Carla" sobrenome="Silva"/>
+    </Pai>
 </div>)
 
 
