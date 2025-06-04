@@ -47,11 +47,19 @@ root.render(<div>
 </div>)*/
 
 //Aula 41 - React: Componente de Classe #01
-import Saudacao from './componentes/Saudacao'
+/*import Saudacao from './componentes/Saudacao'
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(<div>
     <Saudacao tipo="Bom dia" nome="João" />
+</div>)*/
+
+//Aula 43 - React: Componentes: Pai & Filho #01
+import Pai from './componentes/Pai'
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(<div>
+    <Pai nome="Paulo" sobrenome="Silva" />
 </div>)
 
 
