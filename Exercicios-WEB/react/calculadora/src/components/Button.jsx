@@ -21,15 +21,6 @@ export default props => {
 }
 
 
-
-
-
-
-
-
-
-
-
 /*export default props => {
     let classes = 'button'
     classes +=  props.operation ? 'operation' : ''
