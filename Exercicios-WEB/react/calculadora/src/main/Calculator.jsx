@@ -6,6 +6,7 @@ import Button from "../components/Button"
 import Display from "../components/Display"
 
 
+
 /* Aula 6 - React - Projeto Calculadora: Implementando a Lógica #01 */
 
 const initialState = {
@@ -32,8 +33,37 @@ export default class Calculator extends Component {
         this.setState({...initialState})
     }
 
+    /* Aula 7 - React - Projeto Calculadora: Implementando a Lógica #02 */
     setOperation(operation) {
-        console.log(operation)
+        //console.log(operation)
+        if(this.state.current === 0) {
+            this.setState({operation, current: 1, clearDisplay: true})
+        }else{
+            const equals = operation === '='
+            const currentOperation = this.state.operation
+
+            const values = [...this.state.values]
+            try{
+                values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
+                if (isNaN(values[0]) || !isFinite(values[0])) {
+	                this.clearMemory()
+                return
+                }
+            }catch{
+                values[0] = this.state.values[0]
+            }
+           
+            values[1] = 0
+
+
+            this.setState({
+                displayValue: values[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+                values
+            })
+        }
     }
 
     addDigit(n){
