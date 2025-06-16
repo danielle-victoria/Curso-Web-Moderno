@@ -1,0 +1,14 @@
+/* Aula 5 - Projeto Cadastro de Usuário: Componente Logo */
+
+aside.logo {
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+aside.logo img{
+    padding: 0px 15px;
+    width: 100%;
+}
