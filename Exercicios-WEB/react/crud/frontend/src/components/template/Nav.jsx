@@ -18,5 +18,5 @@ export default props =>
                 <i className="fa fa-users"></i> Usuários
             </Link>
         </nav>
-        Navegação
+        {/*Navegação*/}
     </aside>

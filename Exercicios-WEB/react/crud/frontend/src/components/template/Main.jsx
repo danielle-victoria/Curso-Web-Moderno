@@ -14,7 +14,7 @@ export default props =>
             <div className="p-3 mt-3">
                 {props.children}
             </div>
-            Conteúdo
+            {/* Conteúdo */}
         </main>
     </React.Fragment>
 
