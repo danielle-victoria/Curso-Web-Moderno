@@ -1,0 +1,8 @@
+/* Aula 7 - Projeto Cadastro - Integração com Banco de Dados(Firestore): CSS Global */
+
+
+html,
+body {
+  background-color: #222;
+  color: #eee;
+}
