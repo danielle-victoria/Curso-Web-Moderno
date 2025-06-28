@@ -1,0 +1,11 @@
+/*Aula 8 - Projeto Cadastro - Integração com Banco de Dados(Firestore): CSS Modularizado*/
+
+.roxo {
+    height: 100vh;
+    background-color: #670bbd;
+    color: #fff;
+}
+
+.roxo h1 {
+    margin: 0;
+}
