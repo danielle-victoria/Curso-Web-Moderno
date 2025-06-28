@@ -9,8 +9,8 @@ export default function Exemplo(){
         /*Para elementos repetidos <div> ou <> (mais indicado)*/
 
         <>
-            <Cabecalho/>
-            <Cabecalho/>
+            <Cabecalho titulo = "Next.js & React"/>
+            <Cabecalho titulo = "Aprenda Next.js na prática"/>
 
         </>
     )
