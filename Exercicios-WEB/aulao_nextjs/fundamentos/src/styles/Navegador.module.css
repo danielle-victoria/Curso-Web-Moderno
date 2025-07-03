@@ -1,7 +1,8 @@
 /*Aula 13 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Componente Navegador */
-
+/*Aula 14 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Navegação Simples */
 .navegador {
     padding: 30px;
     margin: 10px;
     border-radius: 8px;
+    cursor: pointer;
 }
