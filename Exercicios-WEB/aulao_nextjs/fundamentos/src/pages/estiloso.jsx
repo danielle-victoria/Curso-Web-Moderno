@@ -1,5 +1,7 @@
 {/* Aula 8 - Projeto Cadastro - Integração com Banco de Dados(Firestore): CSS Modularizado */}
 {/* Aula 11 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Navegação entre Componentes */}
+{/* Aula 12 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Componente Layout */}
+
 
 import Layout from '../components/Layout'
 import styles from '../styles/Estiloso.module.css'
