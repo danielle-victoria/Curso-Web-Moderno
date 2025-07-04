@@ -3,6 +3,7 @@
 {/* Aula 11 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Navegação entre Componentes */}
 {/* Aula 13 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Componente Navegador */}
 {/* Aula 14 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Navegação Simples */}
+{/* Aula 15 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Navegação Dinâmica */}
 
 import Navegador from '../components/Navegador'
 
@@ -31,6 +32,7 @@ export default function Inicio() {
             <Navegador texto ="Exemplo" destino="/exemplo" cor='#9400d3'/>
             <Navegador texto ="JSX" destino="/jsx" cor='crimson'/>
             <Navegador texto ="Navegação #01" destino="/navegacao/" cor='green'/>
+            <Navegador texto ="Navegação #02" destino="/cliente/sp-2/123" cor='blue'/>
         </div>
     )
 }
