@@ -13,9 +13,17 @@ export default function handler(
 }
 */
 
-//Aula 17 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Usando API #01 */
+/* Aula 17 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Usando API #01 */
+/* Aula 18 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Usando API #02 */
 
 export default function handler(req, res) {
-  res.status(200).json({name: 'Teste API'})
+  //res.status(200).json({name: 'Teste API'})
+  res.status(200).json({
+    name: 'Teste API',
+    metodo: req.method,
+    //params: JSON.stringify(req.query)
+    nome: req.query.nome,
+    idade: +req.query.idade
+  })
 }
 
