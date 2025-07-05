@@ -5,6 +5,8 @@
 {/* Aula 14 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Navegação Simples */}
 {/* Aula 15 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Navegação Dinâmica */}
 {/* Aula 16 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente com Estado */}
+{/* Aula 19 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Integração com API */}
+
 import Navegador from '../components/Navegador'
 
 /*export default function Inicio(){
@@ -34,6 +36,7 @@ export default function Inicio() {
             <Navegador texto ="Navegação #01" destino="/navegacao/" cor='green'/>
             <Navegador texto ="Navegação #02" destino="/cliente/sp-2/123" cor='blue'/>
             <Navegador texto ="Componente com Estado" destino="/estado" cor='pink'/>
+            <Navegador texto ="Integração com API #01" destino="/integracao_1" cor='yellow'/>
         </div>
     )
 }
