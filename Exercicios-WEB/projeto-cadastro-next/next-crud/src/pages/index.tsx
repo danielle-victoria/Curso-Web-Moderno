@@ -20,17 +20,35 @@ export default function Home() {
     </div>
   )
 }   original*/
+
+import Layout from "../components/Layout"
+
    
 
 /* Aula 25 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Configuração: NextJS, TailwindCSS e Firebase */
 
-export default function Home(){
+/*export default function Home(){
   return (
     <div className={`
       flex h-screen justify-center items-center
       bg-gradient-to-r from-pink-500 via-purple-500 to-blue-600
     `}>
       <span className="text-4xl">Texto</span>
+    </div>
+  )
+}*/
+
+{/* Aula 26 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Componentes Layout e Título */}
+export default function Home(){
+  return (
+    <div className={`
+      flex justify-center items-center h-screen
+      bg-gradient-to-r from-blue-500 to-purple-500
+      text-white
+    `}>
+      <Layout titulo="Cadastro Simples">
+        <span>Conteúdo</span>
+      </Layout>
     </div>
   )
 }
