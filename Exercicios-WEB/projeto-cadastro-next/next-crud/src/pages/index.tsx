@@ -40,6 +40,8 @@ import Cliente from "../core/Cliente"
 }*/
 
 {/* Aula 26 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Componentes Layout e Título */}
+{/* Aula 30 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente Tabela #03 */}
+
 export default function Home(){
 
   const clientes = [
@@ -48,6 +50,14 @@ export default function Home(){
     new Cliente('Carlos', 23, '3'),
     new Cliente('Pedro', 54, '4')
   ]
+
+  function clienteSelecionado(cliente: Cliente){
+    console.log(cliente.nome)
+  }
+  
+  function clienteExcluido(cliente: Cliente){
+    console.log(`Excluir... ${cliente.nome}`)
+  }
   return (
     <div className={`
       flex justify-center items-center h-screen
@@ -55,7 +65,10 @@ export default function Home(){
       text-white
     `}>
       <Layout titulo="Cadastro Simples">
-        <Tabela clientes={clientes}></Tabela>
+        <Tabela clientes={clientes}
+           clienteSelecionado={clienteSelecionado}
+           clienteExcluido={clienteExcluido}
+            />
       </Layout>
     </div>
   )
