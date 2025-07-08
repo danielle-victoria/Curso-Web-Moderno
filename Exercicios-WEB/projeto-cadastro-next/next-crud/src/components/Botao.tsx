@@ -4,7 +4,7 @@
 interface BotaoProps {
     //cor?: 'bg-green-500' | 'bg-blue-500' | 'bg-gray-500'
     cor?: 'bg-gradient-to-r from-green-400 to-green-700' | 'bg-gradient-to-r from-blue-400 to-blue-700'
-         | 'bg-gradient-to-r from-gray-400 to-gray-700'
+         | 'bg-gradient-to-r from-gray-400 to-gray-700'  | 'bg-green-500' | 'bg-blue-500' | 'bg-gray-500'
     className?: string
     children: any
 }

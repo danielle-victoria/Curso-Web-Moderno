@@ -22,6 +22,7 @@ export default function Home() {
 }   original*/
 
 import Botao from "../components/Botao"
+import Formulario from "../components/Formulario"
 import Layout from "../components/Layout"
 import Tabela from "../components/Tabela"
 import Cliente from "../core/Cliente"
@@ -42,6 +43,8 @@ import Cliente from "../core/Cliente"
 
 {/* Aula 26 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Componentes Layout e Título */}
 {/* Aula 30 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente Tabela #03 */}
+{/* Aula 31 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente Botão */}
+{/* Aula 32 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente Formulário */}
 
 export default function Home(){
 
@@ -74,6 +77,7 @@ export default function Home(){
            clienteSelecionado={clienteSelecionado}
            clienteExcluido={clienteExcluido}
             />
+            <Formulario cliente={clientes[2]}></Formulario>
       </Layout>
     </div>
   )
