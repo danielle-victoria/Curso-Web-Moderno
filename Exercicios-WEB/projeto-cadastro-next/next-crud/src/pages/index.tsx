@@ -47,7 +47,12 @@ import Cliente from "../core/Cliente"
 {/* Aula 31 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente Botão */}
 {/* Aula 32 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente Formulário */}
 {/* Aula 33 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Alternando entre Tabela e Formulário */}
+{/* Aula 34 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Integrando Tabela e Formulário */}
+
 export default function Home(){
+
+  const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
+  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
   const clientes = [
     new Cliente('Ana', 34, '1'),
@@ -57,17 +62,26 @@ export default function Home(){
   ]
 
   function clienteSelecionado(cliente: Cliente){
-    console.log(cliente.nome)
+    //console.log(cliente.nome)
+    setCliente(cliente)
+    setVisivel('form')
   }
   
   function clienteExcluido(cliente: Cliente){
     console.log(`Excluir... ${cliente.nome}`)
   }
 
+  function novoCliente(cliente: Cliente){
+    //console.log(cliente)
+    setCliente(Cliente.vazio())
+    setVisivel('form')
+  }
   function salvarCliente(cliente: Cliente){
     console.log(cliente)
+    setVisivel('tabela')
   }
-  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
+
+ 
   return (
     <div className={`
       flex justify-center items-center h-screen
@@ -80,7 +94,8 @@ export default function Home(){
           <div className="flex justify-end">
             {/*<Botao className="mb-4" cor="bg-green-500">Novo Cliente</Botao>*/}
             <Botao className="mb-4" cor="bg-gradient-to-r from-green-400 to-green-700"
-              onClick={() => setVisivel('form')}
+              //onClick={() => setVisivel('form')}
+              onClick={novoCliente}
               >Novo Cliente
             </Botao>
           </div>
@@ -92,7 +107,8 @@ export default function Home(){
     
         ) : (
           <Formulario
-            cliente={clientes[2]}
+            //cliente={clientes[2]}
+            cliente = {cliente}
             clienteMudou={salvarCliente}
             cancelado={() => setVisivel('tabela')}
 
