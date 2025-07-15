@@ -21,12 +21,14 @@ export default function Home() {
   )
 }   original*/
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Botao from "../components/Botao"
 import Formulario from "../components/Formulario"
 import Layout from "../components/Layout"
 import Tabela from "../components/Tabela"
 import Cliente from "../core/Cliente"
+import ClienteRepositorio from "../core/ClienteRepositorio"
+import ColecaoCliente from "../backend/db/ColecaoCliente"
    
 
 /* Aula 25 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Configuração: NextJS, TailwindCSS e Firebase */
@@ -48,27 +50,42 @@ import Cliente from "../core/Cliente"
 {/* Aula 32 - Projeto Cadastro - Integração com Banco de Dados(Firestore):  Componente Formulário */}
 {/* Aula 33 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Alternando entre Tabela e Formulário */}
 {/* Aula 34 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Integrando Tabela e Formulário */}
+{/* Aula 38 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Integrando Cadastro com Firebase */}
+
 
 export default function Home(){
 
+  const repo: ClienteRepositorio = new ColecaoCliente()
+
   const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
+  const [clientes, setClientes] = useState<Cliente[]>([])
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
-  const clientes = [
+  /*const clientes = [
     new Cliente('Ana', 34, '1'),
     new Cliente('Bia', 45, '2'),
     new Cliente('Carlos', 23, '3'),
     new Cliente('Pedro', 54, '4')
-  ]
+  ]*/
 
+    useEffect((obterTodos), [])
+
+    function obterTodos(){
+      repo.obterTodos().then(clientes => {
+        setClientes(clientes)
+        setVisivel('tabela')
+      })
+    }
   function clienteSelecionado(cliente: Cliente){
     //console.log(cliente.nome)
     setCliente(cliente)
     setVisivel('form')
   }
   
-  function clienteExcluido(cliente: Cliente){
-    console.log(`Excluir... ${cliente.nome}`)
+  async function clienteExcluido(cliente: Cliente){
+    //console.log(`Excluir... ${cliente.nome}`)
+    await repo.excluir(cliente)
+    obterTodos()
   }
 
   function novoCliente(cliente: Cliente){
@@ -76,9 +93,11 @@ export default function Home(){
     setCliente(Cliente.vazio())
     setVisivel('form')
   }
-  function salvarCliente(cliente: Cliente){
-    console.log(cliente)
-    setVisivel('tabela')
+  async function salvarCliente(cliente: Cliente){
+    //console.log(cliente)
+    await repo.salvar(cliente)
+    //setVisivel('tabela')
+    obterTodos()
   }
 
  
