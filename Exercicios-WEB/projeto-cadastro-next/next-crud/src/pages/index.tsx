@@ -21,15 +21,7 @@ export default function Home() {
   )
 }   original*/
 
-import { useEffect, useState } from "react"
-import Botao from "../components/Botao"
-import Formulario from "../components/Formulario"
-import Layout from "../components/Layout"
-import Tabela from "../components/Tabela"
-import Cliente from "../core/Cliente"
-import ClienteRepositorio from "../core/ClienteRepositorio"
-import ColecaoCliente from "../backend/db/ColecaoCliente"
-   
+
 
 /* Aula 25 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Configuração: NextJS, TailwindCSS e Firebase */
 
@@ -51,55 +43,29 @@ import ColecaoCliente from "../backend/db/ColecaoCliente"
 {/* Aula 33 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Alternando entre Tabela e Formulário */}
 {/* Aula 34 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Integrando Tabela e Formulário */}
 {/* Aula 38 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Integrando Cadastro com Firebase */}
+{/* Aula 39 - Projeto Cadastro - Integração com Banco de Dados(Firestore): Organizando Código com Hooks */}
 
 
+import Botao from "../components/Botao"
+import Formulario from "../components/Formulario"
+import Layout from "../components/Layout"
+import Tabela from "../components/Tabela"
+import useClientes from "../hooks/useClientes"
+   
 export default function Home(){
 
-  const repo: ClienteRepositorio = new ColecaoCliente()
+  //importar hooks - useClientes.ts
 
-  const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
-  const [clientes, setClientes] = useState<Cliente[]>([])
-  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
-
-  /*const clientes = [
-    new Cliente('Ana', 34, '1'),
-    new Cliente('Bia', 45, '2'),
-    new Cliente('Carlos', 23, '3'),
-    new Cliente('Pedro', 54, '4')
-  ]*/
-
-    useEffect((obterTodos), [])
-
-    function obterTodos(){
-      repo.obterTodos().then(clientes => {
-        setClientes(clientes)
-        setVisivel('tabela')
-      })
-    }
-  function clienteSelecionado(cliente: Cliente){
-    //console.log(cliente.nome)
-    setCliente(cliente)
-    setVisivel('form')
-  }
-  
-  async function clienteExcluido(cliente: Cliente){
-    //console.log(`Excluir... ${cliente.nome}`)
-    await repo.excluir(cliente)
-    obterTodos()
-  }
-
-  function novoCliente(cliente: Cliente){
-    //console.log(cliente)
-    setCliente(Cliente.vazio())
-    setVisivel('form')
-  }
-  async function salvarCliente(cliente: Cliente){
-    //console.log(cliente)
-    await repo.salvar(cliente)
-    //setVisivel('tabela')
-    obterTodos()
-  }
-
+  const { 
+    cliente,
+    clientes,
+    novoCliente,
+    salvarCliente,
+    selecionarCliente,
+    excluirCliente,
+    tabelaVisivel,
+    exibirTabela
+  } = useClientes()
  
   return (
     <div className={`
@@ -108,7 +74,7 @@ export default function Home(){
       text-white
     `}>
       <Layout titulo="Cadastro Simples">
-        {visivel === 'tabela' ? (
+        {tabelaVisivel ? (
           <>
           <div className="flex justify-end">
             {/*<Botao className="mb-4" cor="bg-green-500">Novo Cliente</Botao>*/}
@@ -119,8 +85,8 @@ export default function Home(){
             </Botao>
           </div>
           <Tabela clientes={clientes}
-            clienteSelecionado={clienteSelecionado}
-            clienteExcluido={clienteExcluido}
+            clienteSelecionado={selecionarCliente}
+            clienteExcluido={excluirCliente}
               />
             </>
     
@@ -129,7 +95,7 @@ export default function Home(){
             //cliente={clientes[2]}
             cliente = {cliente}
             clienteMudou={salvarCliente}
-            cancelado={() => setVisivel('tabela')}
+            cancelado={exibirTabela}
 
           />
 
