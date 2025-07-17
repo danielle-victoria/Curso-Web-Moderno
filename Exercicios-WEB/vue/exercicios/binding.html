@@ -7,9 +7,38 @@
     <script src="/js/vue.min.js"></script>
 </head>
 <body class="exercicio">
+    <div id="app">
+        <p>{{ link }}</p>
+        <p><a href="{{ link }}">Canal?</a></p> <!-- Forma incorreta -->
+        <p><a v-bind:href="link">Canal</a></p> <!-- Forma correta - Uso de diretivas (v-)-->
+        <p><a :href="link">Canal</a></p>   <!-- :(significa binding)-->
+        <p>
+            <input type="text" v-model="nome"><br>
+            <span>{{ nome }}</span><br> <!-- Sincroniza com o dado de cima -->
+            <!--<input type="text" :value="nome"><br>
+            <span>{{ nome }}</span> --><!-- Não sincroniza com o dado de cima -->
 
+        </p>
+    </div>
+   
     <script>
-        // ...
+
+    //Aula 3 - VueJS: Binding
+
+    new Vue({
+        el: "#app",
+        data: {
+            nome: "Maria",
+            link: "https://youtube.com/cod3rcursos"
+        },
+        watch: {   // Responde com uma mundança de comportamento
+            nome(novoValor){
+                console.log(novoValor.toUpperCase())
+            }
+        }
+    })
+
+        
     </script>
 </body>
 </html>
