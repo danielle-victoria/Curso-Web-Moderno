@@ -12,9 +12,20 @@
     </style>
 </head>
 <body class="exercicio">
+    <div id="app" @click="aplicarCor = !aplicarCor"
+        :class="{vermelho: aplicarCor}">
+        Teste
+    </div>
 
     <script>
-        // ...
+        //Aula 6 - VueJS: Aplicando Estilo CSS
+        
+        new Vue ({
+            el: "#app",
+            data: {
+                aplicarCor: false
+            }
+        })
     </script>
 </body>
 </html>
