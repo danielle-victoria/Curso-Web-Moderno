@@ -7,10 +7,39 @@
     <script src="/js/vue.min.js"></script>
 </head>
 <body class="exercicio">
-    
-    <script>
-        // ..
+    <div id="app">
+        <contador></contador>
+        <contador></contador>
+        <contador></contador>
 
+    </div>
+    <script>
+        // Aula 9 - VueJS: Componente #02 (Desafio)
+        
+        Vue.component('contador', {
+            data: function(){
+                return {
+                    contador: 0
+                }
+            },
+            methods: {
+                add(){
+                    this.contador++
+                }
+            },
+            template: `
+                <div>
+                    <span>{{ contador }}</span>
+                    <button @click="add">+1</button>
+                    <button @click="contador--">-1</button>
+                </div>
+            `
+        })
+
+        new Vue({
+            el: "#app",
+
+        })
     </script>
 </body>
 </html>
