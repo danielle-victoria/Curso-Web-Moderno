@@ -3,13 +3,18 @@
 <!-- CTRL + Space - Gera um template base -->
 <template>
     <div id="app">
-        <h1>Olá Vue!</h1>
+        <h1>Calculadora</h1>
+        <CalculatorComponent />
     </div>
 </template>
 
 <script>
-export default {
 
+import CalculatorComponent from "./main/CalculatorComponent"
+export default {
+    components: { CalculatorComponent
+
+    }
 }
 </script>
 
