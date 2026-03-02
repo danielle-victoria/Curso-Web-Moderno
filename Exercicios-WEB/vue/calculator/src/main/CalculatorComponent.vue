@@ -1,9 +1,26 @@
 <!-- Aula 3 - Projeto Calculadora (Vue): Criando Componentes -->
+<!-- Aula 4 - Projeto Calculadora (Vue): Componente Button #01 -->
 
 <template>
     <div class="calculator">
         <DisplayComponent/>
-        <ButtonComponent/>
+        <ButtonComponent label="AC" triple/>
+        <ButtonComponent label="/" operation/>
+        <ButtonComponent label="7" />
+        <ButtonComponent label="8" />
+        <ButtonComponent label="9"/>
+        <ButtonComponent label="*" operation/>
+        <ButtonComponent label="4" />
+        <ButtonComponent label="5" />
+        <ButtonComponent label="6" />
+        <ButtonComponent label="-" operation/>
+        <ButtonComponent label="1" />
+        <ButtonComponent label="2" />
+        <ButtonComponent label="3" />
+        <ButtonComponent label="+" operation/>
+        <ButtonComponent label="0" double/>
+        <ButtonComponent label="." />
+        <ButtonComponent label="=" operation/>
 
     </div>
 </template>
