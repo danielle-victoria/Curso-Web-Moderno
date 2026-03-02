@@ -1,5 +1,6 @@
 <!-- Aula 3 - Projeto Calculadora (Vue): Criando Componentes -->
 <!-- Aula 5 - Projeto Calculadora (Vue): Componente Display -->
+<!-- Aula 6 - Projeto Calculadora (Vue): Componente Button #02 -->
 
 
 <template>

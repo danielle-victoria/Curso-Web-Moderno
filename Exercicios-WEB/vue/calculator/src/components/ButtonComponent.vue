@@ -1,8 +1,11 @@
 <!-- Aula 3 - Projeto Calculadora (Vue): Criando Componentes -->
 <!-- Aula 4 - Projeto Calculadora (Vue): Componente Button #01 -->
+<!-- Aula 6 - Projeto Calculadora (Vue): Componente Button #02 -->
+
 
 <template>
     <button class="button"
+        @click="$emit('onClick', label)"
         :class="{double, triple, operation}">
         {{ label }}
     </button>
