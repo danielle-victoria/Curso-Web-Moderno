@@ -1,9 +1,11 @@
 <!-- Aula 3 - Projeto Calculadora (Vue): Criando Componentes -->
 <!-- Aula 4 - Projeto Calculadora (Vue): Componente Button #01 -->
+<!-- Aula 5 - Projeto Calculadora (Vue): Componente Display -->
+
 
 <template>
     <div class="calculator">
-        <DisplayComponent/>
+        <DisplayComponent value="1000"/>
         <ButtonComponent label="AC" triple/>
         <ButtonComponent label="/" operation/>
         <ButtonComponent label="7" />
@@ -44,7 +46,7 @@ export default {
     overflow: hidden;
     
     display: grid;
-    grid-template-columns: repeat, (4, 25%);
+    grid-template-columns: repeat(4, 25%);
     grid-template-rows: 1fr 48px 48px 48px 48px 48px;
 }
 
