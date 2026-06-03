@@ -20,29 +20,28 @@ export default {
 
 <style>
 
-*{
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
+  * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+  }
 
-body {
-    color: #fff;
-    background-color:linear-gradient(to right, rgb(21, 153, 87), rgb(21, 87, 153));
-    margin: 0;
+  body {
+      color: #FFF;
+      background: linear-gradient(to right, rgb(21, 153, 87), rgb(21, 87, 153));
+      
+  }
+
+  #app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #app h1 {
+    border: 1px solid #000;
+    background-color: #004;
     padding: 20px;
-}
-
-#app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#app h1 {
-   border: 1px solid #000;
-   background-color: #000;
-   padding: 20px;
-   margin-bottom: 60px;
-}
+    margin-bottom: 60px;
+  }
 
 </style>
