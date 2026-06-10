@@ -8,3 +8,5 @@ CREATE TABLE IF NOT EXISTS cidades (
     PRIMARY KEY (id),
     FOREIGN KEY (estado_id) REFERENCES estados(id)
 );
+
+

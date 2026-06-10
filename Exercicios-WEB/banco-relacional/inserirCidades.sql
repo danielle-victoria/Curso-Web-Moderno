@@ -2,11 +2,11 @@
 
 -- Inserir cidades na tabela cidades, associando-as aos estados correspondentes
 INSERT INTO cidades (nome, area, estado_id)
-VALUES ('Campinas', 795, 1);
+VALUES ('Campinas', 795, 25);
 
 -- Inserir cidades utilizando subconsulta para obter o id do estado
 INSERT INTO cidades (nome, area, estado_id)
-VALUES ('Niterói', 133.9, 25);
+VALUES ('Niterói', 133.9, 19);
 
 -- Inserir cidades utilizando subconsulta para obter o id do estado
 INSERT INTO cidades
@@ -29,3 +29,11 @@ VALUES(
 
 -- Consultar todas as cidades para verificar as inserções
 SELECT * FROM cidades
+
+--DELETE FROM cidades
+--WHERE id = 1;
+
+--DELETE FROM cidades
+--WHERE estado_id = 25;
+
+--SELECT * FROM cidades
