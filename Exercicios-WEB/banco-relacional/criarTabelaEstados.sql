@@ -4,7 +4,7 @@
 -- populacao DECIMAL(5,2) NOT NULL, --5 dígitos no total, sendo 2 decimais
 
 -- Criar a tabela Estados
-CREATE TABLE estados (
+CREATE TABLE IF NOT EXISTS estados (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(45) NOT NULL,
     sigla VARCHAR(2) NOT NULL,
