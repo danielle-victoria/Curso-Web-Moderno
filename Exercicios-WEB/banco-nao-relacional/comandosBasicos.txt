@@ -1,0 +1,17 @@
+Comandos
+
+
+- show dbs - mostrar os bancos de dados existentes
+
+- use + nome do banco de dados - entrar no banco de dados
+
+- db.createCollection('nome qualquer') - criar uma coleção 
+
+- show collections - mostrar as coleções criadas
+
+* MongoDB é sensitive case!
+
+- db.NomedaColeção.drop() - Excluir uma coleção
+
+* Se excluir todas as coleções de um Bando de Dados, ele não vai 
+mais aparecer ao usar o comando "show dbs"
