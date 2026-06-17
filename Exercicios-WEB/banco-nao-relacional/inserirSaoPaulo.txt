@@ -1,0 +1,20 @@
+Aula 7 e 8 - Banco Não Relacional: Desafio Inserir (São Paulo)
+
+
+db.estados.insert ({
+     nome: "São Paulo",
+      sigla: "SP",
+       regiao: "Sudeste",
+        cidades: [{
+            _id: ObjectId(),
+             nome: "Campinas",
+             area: 795.7,
+             prefeito: "Jonas Donizette",
+             populacao: 10810000}, {
+            _id: ObjectId(),
+            nome: "Guarulhos",
+            populacao: 1325000}, { 
+            _id: ObjectId(),
+            nome: "Sorocaba",
+            distanciaCapital: 87,
+            populacao: 644919}] })
