@@ -1,0 +1,43 @@
+Aula 9 - Banco Não Relacional: Consulta #01
+
+
+
+db.estados.find() - Encontrar todos os estados
+
+
+ db.estados.find().pretty() - Lista todos os dados (estados)
+ em formato JSON
+
+
+ db.estados.findOne() - Mostra o primeiro estado
+
+
+  db.estados.findOne({sigla: "RJ"}) - Mostra o primeiro estado que tenha
+  a sigla "RJ"
+
+  db.estados.find({sigla: "RJ"}).pretty() - Mostrar os estados que tenham
+  a sigla "RJ" - Mostra do formato JSON
+
+  db.estados.find({$or: [{sigla: "RJ"}, {sigla: "AC"}]}).pretty() - Mostra algo se 
+  pelo menos um dos estados tiverem essas siglas
+
+ db.estados.find({$and: [{sigla: "RJ"}, {sigla: "AC"}]}).pretty() - Mostra algo só se 
+ existirem estados com essas duas siglas. 
+
+ db.estados.find({populacao: {$exists: true}}) - Mostra os estados que tenham esse atributo
+
+ db.estados.find().skip(1) - pula o primeiro registro
+
+ db.estados.find().skip(1).limit(2) - pula o primeiro registro e só mostra
+ apenas dois resultados
+
+ db.estados.count() - quantidade de estados -> quantidade de registro
+
+ db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1}) - retorna o estado que 
+ tenha a sigla SP e os atributos presentes no retorno são (id: por padrão, nome e sigla)
+
+ db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1, _id:0}) - Mesmo retorno do caso anterior
+ com exceção da não exibição do id
+
+ db.estados.find({sigla: "SP"}, {"cidades.nome": 1, _id:0}) - Retorna o nome das cidades daquele
+ estado
