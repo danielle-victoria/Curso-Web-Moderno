@@ -13,3 +13,22 @@ db.empresas.aggregate([
 ]).pretty()
 
 
+Aula 17 - Banco Não Relacional: Consulta com Lookup #02
+
+db.empresas.aggregate([
+    {$match: {nome: "Vale"}},
+    {$lookup: {
+        from: "estados",
+        localField: "estadoID",
+        foreignField: "cidades._id",
+        as: "estado"
+    }},
+    {$unwind: "$estado"},
+    {$unwind: "$estado.cidades"},
+    {$addFields: { mesmaCidade: {$cmp: ["$estado.cidades._id", "$cidadeId"]} } },
+    {$match: { mesmaCidade: 0}},
+]).pretty()
+
+
+
+{$match: {"estado.cidades._id": "$cidadeID"}}, -> Substituto -> {$addFields: { mesmaCidade: {$cmp: ["$estado.cidades._id", "$cidadeID"]} } },
