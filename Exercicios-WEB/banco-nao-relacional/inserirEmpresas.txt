@@ -1,0 +1,16 @@
+Aula 15 - Banco Não Relacional: Inserir Empresas
+
+
+db.estados.find().pretty()
+
+db.empresas.insert({ nome: "Bradesco", estadoID: ObjectId("6a31f1c1137f7e377440d2d3")})
+
+db.empresas.find().pretty()
+
+db.empresas.insert({
+    nome: "Vale",
+    cidadeId: ObjectId("6a31f1c1137f7e377440d2d2")
+})
+
+
+db.empresas.find().pretty()
