@@ -1,0 +1,15 @@
+Aula 16 - Banco Não Relacional: Consulta com Lookup #01
+
+
+db.empresas.aggregate([
+    {$match: {nome: "Bradesco"}},
+    {$lookup: {
+        from: "estados",
+        localField: "estadoID",
+        foreignField: "_id",
+        as: "estado"
+    }},
+    {$unwind: "$estado"},
+]).pretty()
+
+
