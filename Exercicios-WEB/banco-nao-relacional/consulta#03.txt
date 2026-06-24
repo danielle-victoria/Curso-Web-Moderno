@@ -1,0 +1,40 @@
+Aula 12 - Banco Não Relacional: Consultas #03
+
+*** Filtra os estados que tem sorocaba ***
+
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"} },
+])
+
+
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"} },
+]).pretty()
+
+
+*** Para cada cidade fica um único estado ***
+
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"} },
+    { $unwind: "$cidades"},
+]).pretty()
+
+
+*****  Apenas a cidade de Sorocaba *****
+
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"} },
+    { $unwind: "$cidades"},
+    { $match: {"cidades.nome": "Sorocaba"} },
+]).pretty()
+
+
+*** Apenas o ID de Sorocaba ***
+
+db.estados.aggregate([
+    { $match: {"cidades.nome": "Sorocaba"} },
+    { $unwind: "$cidades"},
+    { $match: {"cidades.nome": "Sorocaba"} },
+    { $project: {_id: "$cidades._id"}}
+]).pretty()
+
